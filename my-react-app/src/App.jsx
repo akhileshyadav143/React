@@ -122,3 +122,69 @@
 // }
 
 // export default App
+
+
+
+
+// lec3
+// import {useState} from 'react'
+
+// const App = () => {
+//     let [input,SetInput]=    useState("")
+//     function fun1(e){
+//         // console.log(e.target.value);
+//         SetInput(e.target.value)
+//         console.log(input);
+//     }
+//   return (
+//     <div>
+//         <h2>{input}</h2>
+//         <input type="text" name="input" placeholder="Enter your name" onChange={fun1}></input>
+        
+//            </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+// import {useState} from 'react'
+
+// const App = () => {
+//     let [input,SetInput]=    useState("")
+//     let  [data,Setdata]=      useState("")
+//     function fun1(e){
+//         // console.log(e.target.value);
+//         SetInput(e.target.value)
+//        // console.log(input);
+//     }
+//     function fun2(){
+//         Setdata(input)
+//     }
+//   return (
+//     <div>
+//         <h2>{data}</h2>
+//         <input type="text" name="input" placeholder="Enter your name" onChange={fun1}></input>
+//         <button onClick={fun2}>click</button>
+//            </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import Form from './Form'
+
+const App = () => {
+  return (
+    <div>
+      <Form />
+    </div>
+  )
+}
+
+export default App
