@@ -93,6 +93,10 @@
 // export default App
 
 
+
+
+
+
 // import React from 'react'
 // import Home from  './Home'
 
@@ -176,15 +180,233 @@
 // export default App
 
 
-import React from 'react'
-import Form from './Form'
+// import React from 'react'
+// import Form from './Form'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Form />
+//     </div>
+//   )
+// }
+
+// export default App  
+
+
+
+
+
+
+
+
+
+// Lec4
+
+// USeEffect
+
+// import   {useState} from 'react'
+// import{useEffect} from "react"
+// const App = () => {
+//   let [count,SetCount]= useState(0)
+//   useEffect(()=>{
+//   console.log("hello")
+//   },[])
+ 
+
+//   return (
+//     <div>
+//       <h2>{count}</h2>
+//       <button   onClick={()=>SetCount(count+1)}>click</button>
+//     </div>
+//   )
+// }
+
+// export default App
+// city chang e kerna 
+// import   {useState} from 'react'
+// import{useEffect} from "react"
+// const App = () => {
+//   let [count,SetCount]= useState(0)
+//    let [city,SetCity]= useState("Goa")
+//   useEffect(()=>{
+//   console.log("hello")
+//   },[city])
+ 
+
+//   return (
+//     <div>
+//       <h2>{count}</h2>
+//       <h3>{ city}</h3>
+//        <button   onClick={()=>SetCity("manali")}>Change</button>
+//       <button   onClick={()=>SetCount(count+1)}>click</button>
+      
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+//   api ka
+// import   {useState} from 'react'
+// import{useEffect} from "react"
+// const App = () => {
+//   let [count,SetCount]= useState(0)
+//    let [city,SetCity]= useState("Goa")
+//   useEffect(()=>{
+//     async function  call() {
+//         let res=  await fatch("https://jsonplaceholder.typicode.com/posts")
+//          let data= await res.json()
+//          console.log(data);
+         
+//     }
+//     call()
+//   // console.log("hello")
+//   },[])
+ 
+
+//   return (
+//     <div>
+//       <h2>{count}</h2>
+//       <h3>{ city}</h3>
+//        <button   onClick={()=>SetCity("manali")}>Change</button>
+//       <button   onClick={()=>SetCount(count+1)}>click</button>
+      
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+
+// const App = () => {
+//   const [input, setInput] = useState(0);
+//   const [city, setCity] = useState("Delhi");
+//   useEffect(() => {
+// //     console.log("useEffect called");
+// //   }, [city]);
+// async function call() {
+// let res=await fetch("https://jsonplaceholder.typicode.com/posts")
+// let data=await res.json()
+// console.log(data);
+// }
+// call()
+
+//   } , []);
+//   return (
+//     <div>
+//       <h2>{input}</h2>
+//       <p>City: {city}</p>
+//       <button onClick={() => setCity("Mumbai")}>Change City</button>
+//       <button onClick={() => setInput(input + 1)}>+</button>
+//       <button onClick={() => setInput(input - 1)}>-</button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+// 1 and title print
+
+// import React, { useState, useEffect } from 'react';
+
+// const App = () => {
+//   const [ApiData, setApiData] = useState([]);
+ 
+//   useEffect(() => {
+// //     console.log("useEffect called");
+// //   }, [city]);
+// async function call() {
+// let res=await fetch("https://jsonplaceholder.typicode.com/posts")
+// let data=await res.json()
+// setApiData(data)
+// // console.log(data);
+// }
+// call()
+
+//   } , []);
+//   return (
+//     <div>
+//    {
+//     ApiData.map((a)=>{
+//       return(
+//         <div>
+//         <h1>{a.id}</h1>
+//         <h2>{a.title}</h2>
+//         </div>
+//       )
+//     })
+//    }
+
+
+
+//     </div>
+//   )
+// } 
+  
+
+// export default App;
+
+
+
+
+
+import React, { useEffect, useState } from "react";
+import "./App.css";
 
 const App = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await fetch("https://dummyjson.com/products");
+        const data = await res.json();
+
+        setProducts(data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <div>
-      <Form />
-    </div>
-  )
-}
+      <h1>Products List</h1>
 
-export default App
+      {products.map((product) => (
+        <div
+          key={product.id}
+          style={{
+            border: "1px solid #ccc",
+            margin: "10px",
+            padding: "10px",
+          }}
+        >
+          <h2>{product.title}</h2>
+          <img
+            src={product.thumbnail}
+            alt={product.title}
+            width="200vw"
+          />
+          <p>Price: ${product.price}</p>
+          <p>Category: {product.category}</p>
+          <p>{product.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default App;
