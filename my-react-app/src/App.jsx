@@ -360,53 +360,103 @@
 
 
 
-import React, { useEffect, useState } from "react";
-import "./App.css";
+// import React, { useEffect, useState } from "react";
+// import "./App.css";
 
+// const App = () => {
+//   const [products, setProducts] = useState([]);
+
+//   useEffect(() => {
+//     async function fetchProducts() {
+//       try {
+//         const res = await fetch("https://dummyjson.com/products");
+//         const data = await res.json();
+
+//         setProducts(data.products);
+//       } catch (error) {
+//         console.error("Error fetching products:", error);
+//       }
+//     }
+
+//     fetchProducts();
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>Products List</h1>
+
+//       {products.map((product) => (
+//         <div
+//           key={product.id}
+//           style={{
+//             border: "1px solid #ccc",
+//             margin: "10px",
+//             padding: "10px",
+//           }}
+//         >
+//           <h2>{product.title}</h2>
+//           <img
+//             src={product.thumbnail}
+//             alt={product.title}
+//             width="200vw"
+//           />
+//           <p>Price: ${product.price}</p>
+//           <p>Category: {product.category}</p>
+//           <p>{product.description}</p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+// import './App.css'
+// const App = () => {
+//       let [ApiData,SetApiData]=    useState([])
+//       useEffect(()=>{
+              
+//               async  function call(){
+//                 let res=  await  fetch("https://dummyjson.com/products")
+//                 let data=        await   res.json()
+//                 console.log(data.products);
+//                 SetApiData(data.products)
+//               }
+//               call()
+//       },[])
+      
+//   return (
+//     <div id="parent_div"   className="">
+//         {
+//           ApiData.map((a)=>{
+//                return(
+//                 <div id="card">
+//                   <h1>{a.id}</h1>
+//                   <img  src={a.thumbnail}/>
+//                 </div>
+//                )
+//           })
+//         }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+import React from 'react'
+import Tack from  './Tack'
 const App = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const res = await fetch("https://dummyjson.com/products");
-        const data = await res.json();
-
-        setProducts(data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    }
-
-    fetchProducts();
-  }, []);
-
   return (
-    <div>
-      <h1>Products List</h1>
+    <div><Tack/></div>
+  )
+}
 
-      {products.map((product) => (
-        <div
-          key={product.id}
-          style={{
-            border: "1px solid #ccc",
-            margin: "10px",
-            padding: "10px",
-          }}
-        >
-          <h2>{product.title}</h2>
-          <img
-            src={product.thumbnail}
-            alt={product.title}
-            width="200vw"
-          />
-          <p>Price: ${product.price}</p>
-          <p>Category: {product.category}</p>
-          <p>{product.description}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default App;
+export default App
