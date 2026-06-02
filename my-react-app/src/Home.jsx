@@ -44,3 +44,15 @@
 // }
 
 // export default Home
+
+import React from 'react'
+
+const Home = () => {
+console.log("heeeeee");
+
+  return (
+    <div>Homeee</div>
+  )
+}
+
+export default Home

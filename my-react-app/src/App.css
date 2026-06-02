@@ -31,7 +31,7 @@ button{
 
 /* App.css */
 
-*{
+/* *{
   margin:0;
   padding:0;
   box-sizing:border-box;
@@ -112,4 +112,18 @@ h1{
 }
 
 
-
+ */
+#hi{
+  height: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+li{
+  color: snow;
+}
