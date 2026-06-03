@@ -80,15 +80,17 @@
 // }
 
 // export default Task
-import React from 'react'
 
-const Tack = () => {
-  return (
-    <div>Tack
+
+// import React from 'react'
+
+// const Tack = () => {
+//   return (
+//     <div>Tack
        
         
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Tack
+// export default Tack
