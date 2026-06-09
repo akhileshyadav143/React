@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-const About = () => {
-  return (
-    <div>
-    About
+// const About = () => {
+//   return (
+//     <div>
+//     About
       
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default About
+// export default About

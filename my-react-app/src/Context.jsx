@@ -1,4 +1,4 @@
-// import  {Constext} from "react";
+import  {Constext} from "react";
 
-// let Constext =createConstext()
-// export default Constext
+let Constext =createConstext()
+export default Constext

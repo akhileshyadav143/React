@@ -94,3 +94,14 @@
 // }
 
 // export default Tack
+
+
+// import React from 'react'
+
+// const Tack = () => {
+//   return (
+//     <div>Tack</div>
+//   )
+// }
+
+// export default Tack
