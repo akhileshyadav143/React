@@ -525,12 +525,34 @@
 
 
 
-import React from 'react'
-import  Todo from './Todo'
-const App = () => {
+// import React from 'react'
+// import  Todo from './Todo'
+// const App = () => {
+//   return (
+//     <div><Todo/></div>
+//   )
+// }
+
+// export default App
+
+
+import { useContext } from "react";
+import { ThemeContext } from "./Dark";
+
+function App() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <div><Todo/></div>
-  )
+    <div>
+      <h1>useContext Dark Mode Demo</h1>
+
+      <p>Current Theme: {theme}</p>
+
+      <button onClick={toggleTheme}>
+        Switch Theme
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -271,107 +271,143 @@
 
 
 
-import React, { useEffect, useState } from "react";
-import "./Todo.css";
+// import React, { useEffect, useState } from "react";
+// import "./Todo.css";
+
+// const Todo = () => {
+//   const [task, setTask] = useState("");
+//   let [index,SetIndex]=useState(null)
+//   const [todos, setTodos] = useState(()=>{
+//     let data=  localStorage.getItem("key")
+//     if(data){
+//         return JSON.parse(data)
+//     }
+//     return []
+//   });
+//   useEffect(()=>{
+//     localStorage.setItem("key",JSON.stringify(todos))
+
+//   },[todos])
+
+
+
+//   function edit(index){
+//     setTask(todos[index])
+//     SetIndex(index)
+
+//   }
+
+
+//   function handleAorUpdate(){
+//     if(task.trim()==""){
+//         return;
+//     }
+//     console.log("helloooooo");
+    
+//     if(index!==null){
+//         let updateDATA=[...todos]
+//         updateDATA[index]=task
+//         setTodos(updateDATA)
+//     }else{
+//         setTodos([...todos,task])
+//         setTask("")
+//     }
+    
+
+//   }
+
+
+//   function d(id){
+//    let d= todos.filter((a,b)=>{
+//         return id!=b
+
+//     })
+//     setTodos(d)
+
+//   }
+
+
+
+
+
+
+
+
+//   return (
+//     <div className="container">
+//       <h1>Todo List</h1>
+
+//       <div className="input-box">
+//         <input
+//           type="text"
+//           name="task"
+//           value={task}
+//           placeholder="Enter a task"
+//           onChange={(e)=>setTask(e.target.value)}
+  
+//         />
+
+// <button onClick={handleAorUpdate}>
+//     {index!==null?"update":"Add"}
+//     </button>
+//       </div>
+    
+
+//       <div className="todo-list">
+//         {todos.map((todo, index) => (
+//           <div className="todo-item" key={index}>
+//             <span>{todo}</span>
+
+//             <div className="actions">
+//               <button onClick={()=>edit(index)}>
+//                 Edit
+//               </button>
+
+//               <button  onClick={()=>d(index)}>
+//                 Delete
+//               </button>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Todo;
+
+
+
+
+
+
+
+import React, { useContext } from 'react'
+import { storeContext } from './Context'
 
 const Todo = () => {
-  const [task, setTask] = useState("");
-  let [index,SetIndex]=useState(null)
-  const [todos, setTodos] = useState(()=>{
-    let data=  localStorage.getItem("key")
-    if(data){
-        return JSON.parse(data)
-    }
-    return []
-  });
-  useEffect(()=>{
-    localStorage.setItem("key",JSON.stringify(todos))
+     
+   let {store,dispatch}=   useContext(storeContext)
 
-  },[todos])
-
-
-
-  function edit(index){
-    setTask(todos[index])
-    SetIndex(index)
-
-  }
-
-
-  function handleAorUpdate(){
-    if(task.trim()==""){
-        return;
-    }
-    console.log("helloooooo");
-    
-    if(index!==null){
-        let updateDATA=[...todos]
-        updateDATA[index]=task
-        setTodos(updateDATA)
-    }else{
-        setTodos([...todos,task])
-        setTask("")
-    }
-    
-
-  }
-
-
-  function d(id){
-   let d= todos.filter((a,b)=>{
-        return id!=b
-
-    })
-    setTodos(d)
-
-  }
-
-
-
-
-
-
-
-
+   
+ 
+   
   return (
-    <div className="container">
-      <h1>Todo List</h1>
-
-      <div className="input-box">
-        <input
-          type="text"
-          name="task"
-          value={task}
-          placeholder="Enter a task"
-          onChange={(e)=>setTask(e.target.value)}
-  
-        />
-
-<button onClick={handleAorUpdate}>
-    {index!==null?"update":"Add"}
-    </button>
-      </div>
-    
-
-      <div className="todo-list">
-        {todos.map((todo, index) => (
-          <div className="todo-item" key={index}>
-            <span>{todo}</span>
-
-            <div className="actions">
-              <button onClick={()=>edit(index)}>
-                Edit
-              </button>
-
-              <button  onClick={()=>d(index)}>
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div>
+      <input onChange={(e)=>dispatch({type:"Set_inp",payload:e.target.value})}/>
+      <button onClick={()=>dispatch({type:"Add_todo"})}>add</button>
+      {
+        store.todos.map((a)=>{
+          console.log(a);
+          
+          return(<>
+          <h6>{a}</h6>
+          <button>delet</button>
+          </>)
+        })
+      }
     </div>
-  );
-};
+  )
+}
 
-export default Todo;
+export default Todo
