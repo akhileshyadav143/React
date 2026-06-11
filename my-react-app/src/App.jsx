@@ -536,7 +536,9 @@
 // export default App
 
 
-import { useContext } from "react";
+// ''''''''''''''''''''''''''''''''''' DARK'''''''''''''''''''''''''''''''''''''''''
+
+ import { useContext } from "react";
 import { ThemeContext } from "./Dark";
 
 function App() {
@@ -556,3 +558,64 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// =============================use memo ===============================================
+
+
+
+// import React from 'react'
+// import useCounter from './useCounter';
+// import useMemo from './useMemo'
+
+// const App = () => {
+
+//   const { count, ince, dec, reset } = useCounter(0);
+//   console.log('he,');
+//   let total = useMemo(()=>{
+//   let res=0
+  
+//   for(let i=0;i<1000000000;i++){
+//     res+=i;
+//   }
+//   return res
+//   },[])
+//   // let total= cal()
+  
+
+//   return (
+//     <div>
+//       <h3>{count}</h3>
+//       {/* <h6>{total}</h6> */}
+//       <button onClick={ince}>++</button>
+//       <button onClick={dec}>--</button>
+//       <button onClick={reset}>Reset</button>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+
+// '''''''''''''''''''''''''''''''''''''''===============MEMOZIATION====================''''''''''''''''''''''''''''''
+
+// import {memo,useState} from 'react'
+
+// const App = () => {
+//   let [count,SetCount]=  useState(0)
+//   return (
+//     <div>
+//       <h3>{count}</h3>
+//       <button onClick={()=>SetCount(count+1)}>Add</button>
+//       <M/>
+//     </div>
+//   )
+// }
+// const M=memo(function(){
+//   console.log("hello");
+//   return(<></>)
+// })
+
+// export default App
